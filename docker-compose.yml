@@ -1,0 +1,31 @@
+version: '3.8'
+services:
+  app:
+    container_name: moduled-node
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - ../user:/usr/src/usernpm
+      - .:/moduled-node
+      - /moduled-node/node_modules
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mydatabase
+    depends_on:
+      - mongo
+    command: 
+      - nodemon
+      - server.js
+
+  mongo:
+    container_name: moduled_mongo_db
+    image: mongo
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
+volumes:
+  mongodata:
