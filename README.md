@@ -68,7 +68,34 @@ async function performAuthOperationsWithStaff() {
 }
 ```
 
-Run the module with `node your-script-name.js` to see the authentication flow in action.
+## API Endpoints
+
+The application supports the following authentication endpoints:
+
+- **POST `/register`**: Registers a new staff member.
+  - Body: `{ "email": "email@example.com", "password": "yourPassword" }`
+
+- **POST `/login`**: Authenticates a staff member.
+  - Body: `{ "email": "email@example.com", "password": "yourPassword" }`
+
+## Testing with Postman
+
+To facilitate easy testing of the API endpoints, we've prepared a `postman.json` file that contains the pre-configured Postman collection for this module. Follow these steps to import the collection and start testing:
+
+### Importing the Postman Collection
+
+1. Download and install Postman from [the Postman website](https://www.postman.com/downloads/) if you haven't already.
+2. Open Postman and click the "Import" button found at the top left corner of the application.
+3. Choose the `postman.json` file provided in this repository, or drag and drop the file into the Postman window to import it.
+4. Once imported, you will see the `PXF Test Module API` collection in your Postman sidebar, containing the configured requests for registration and login.
+
+### Executing Requests
+
+- Navigate to the `PXF Test Module API` collection in Postman.
+- Select either the "Register Staff" or "Login Staff" request to open it.
+- Click the "Send" button to execute the request. The response will be displayed in the lower section of the Postman interface.
+- You can modify the request body as needed to test different inputs.
+
 
 ## Conclusion
 
